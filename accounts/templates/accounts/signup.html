@@ -1,0 +1,187 @@
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>ثبت نام</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="{% static 'signup/css/style.css' %}">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">عضویت</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-10">
+					<div class="wrap d-md-flex">
+						<div class="text-wrap p-4 p-lg-5 d-flex img d-flex align-items-end" style="background-image: url({% static 'signup/images/pizza3.jpg' %});">
+							<div class="text w-100">
+								<h2 class="mb-4">به پیتزا کالیس خوش آمدید</h2>
+								<p>سفارشات خود را بصورت آنلاین ثبت کرده و در سریع ترین زمان در قیطریه تحویل بگیرید</p>
+							</div>
+			      </div>
+						<div class="login-wrap p-4 p-md-5">
+	      			<h3 class="mb-3">Create an account</h3>
+                    
+                      <form class="login100-form validate-form p-b-33 p-t-5" method="POST">
+                        {% csrf_token %}
+    
+    
+    
+                        {% if messages %}
+                        {% for message in messages %}
+                                            <div class="{{ message.tags }} alert-dismissible fade show m-t-30" role="alert">
+                          {{ message }}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span> 
+                          </button>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+
+							<form action="#" class="signup-form">
+								<div class="row">
+                                    <!-- get username -->
+									<div class="col-md-12">
+										<div class="form-group d-flex align-items-center">
+					      			<label class="label" for="name">Username</label>
+                                      {% render_field form.username type="text" class="form-control" placeholder="Username" required=True name="username" %}
+					      		</div>
+									</div>
+                                    <!-- get firstname -->
+									<div class="col-md-12">
+										<div class="form-group d-flex align-items-center">
+					      			<label class="label" for="email">Firstname</label>
+                                      {% render_field form.first_name type="text" class="form-control" placeholder="Firstname" required=True name="firstname" %}
+					      		</div>
+									</div>
+                                    <!-- get lastname -->
+									<div class="col-md-12">
+										<div class="form-group d-flex align-items-center">
+					      			<label class="label" for="phone">Lastname</label>
+					      			{% render_field form.last_name type="text" class="form-control" placeholder="Lastname" required=True name="lastname" %}
+					      		</div>
+									</div>
+                                    <!-- get email -->
+									<div class="col-md-12">
+										<div class="form-group d-flex align-items-center">
+				            	<label class="label" for="password">Email</label>
+                                {% render_field form.email type="text" class="form-control" placeholder="Email" name="email" %}
+				            </div>
+									</div>
+                                    <!-- get nc -->
+									<div class="col-md-12">
+										<div class="form-group d-flex align-items-center">
+					      			<label class="label" for="website">National Code</label>
+                                      {% render_field form.nc type="text" class="form-control" placeholder="National Code" name="nc" %}
+					      		</div>
+									</div>
+                                    <!-- checkmark -->
+									<div class="col-md-12 my-4">
+										<div class="form-group">
+				            	<div class="w-100">
+					            	<label class="checkbox-wrap checkbox-primary">I agree all statements in terms of service
+												  <input type="checkbox" checked>
+												  <span class="checkmark"></span>
+												</label>
+											</div>
+
+                                    <!-- get phonenumber -->
+									<div class="col-md-12">
+										<div class="form-group d-flex align-items-center">
+					      			<label class="label" for="website">Phone Number</label>
+                                      {% render_field form.phone_number type="text" class="form-control" placeholder="Phone Number" name="phone_number" %}
+					      		</div>
+									</div>
+                                    <!-- get bio -->
+									<div class="col-md-12">
+										<div class="form-group d-flex align-items-center">
+					      			<label class="label" for="email">Biography</label>
+                                      {% render_field form.bio type="text" class="form-control" placeholder="Biography" name="bio" %}
+					      		</div>
+									</div>
+									</div>
+                                    <!-- get age -->
+									<div class="col-md-12">
+										<div class="form-group d-flex align-items-center">
+					      			<label class="label" for="email">Age</label>
+                                      {% render_field form.age type="text" class="form-control" placeholder="Age" name="age" %}
+					      		</div>
+									</div>
+
+                                    <!-- get gender -->
+									<div class="col-md-12">
+										<div class="form-group d-flex align-items-center">
+					      			<label class="label" for="email">Gender</label>
+                                      {% render_field form.gender type="text" class="form-control" placeholder="Gender" name="gender" %}
+					      		</div>
+									</div>
+
+                                    <!-- get password1 -->
+									<div class="col-md-12">
+										<div class="form-group d-flex align-items-center">
+					      			<label class="label" for="email">Password</label>
+                                      {% render_field form.password1 class="form-control" placeholder="Password" required=True name="password" %}
+					      		</div>
+									</div>
+
+                                    <!-- get password2 -->
+									<div class="col-md-12">
+										<div class="form-group d-flex align-items-center">
+					      			<label class="label" for="email">RePassword</label>
+                                      {% render_field form.password2 class="form-control" placeholder="RePassword" required=True name="password" %}
+					      		</div>
+									</div>
+
+
+                                    <!-- submit inputs -->
+									<div class="col-md-12">
+										<div class="form-group">
+				            	<button type="submit" class="btn btn-secondary submit p-3">Create an account</button>
+				            </div>
+									</div>
+								</div>
+
+		          </form>
+		          <div class="social-wrap">
+		          	<p class="or">
+		          		<span>or</span>
+		          	</p>
+		      			<p class="mb-3 text-center">Signup with this services</p>
+		      			<p class="social-media d-flex justify-content-center">
+		      				<a href="#" class="social-icon google d-flex align-items-center justify-content-center"><span class="fa fa-google"></span></a>
+									<a href="#" class="social-icon facebook d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
+									<a href="#" class="social-icon twitter d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
+								</p>
+	          	</div>
+		          <div class="w-100 text-center">
+								<p class="mt-4">I'm already a member! <a href="{% url 'accounts:login' %}">Log In</a></p>
+		          </div>
+		        </div>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{% static 'signup/js/jquery.min.js' %}"></script>
+  <script src="{% static 'signup/js/popper.js' %}"></script>
+  <script src="{% static 'signup/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'signup/js/main.js' %}"></script>
+
+	</body>
+</html>
+

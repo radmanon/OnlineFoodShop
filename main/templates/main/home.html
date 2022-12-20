@@ -1,0 +1,81 @@
+{% extends "main/layout.html" %}
+{% block content %}
+<br>
+<h2 style="text-align: center; color: white; text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px #FF4500; direction: rtl;">وعده های غذایی</h2>
+<br>
+<div id="myBtnContainer" style="text-align: center; direction: rtl;">
+  <button class="btn active" onclick="filterSelection('all')">همه</button>
+  <button class="btn" onclick="filterSelection('Main Meal')">غذای اصلی</button>
+  <button class="btn" onclick="filterSelection('Drink')">نوشیدنی</button>
+  <button class="btn" onclick="filterSelection('Dessert')">پیش غذا</button>
+</div>
+
+
+<div class="container" style="text-align: center">
+  
+
+  
+  <div class="filterDiv Drink">
+    {% for item in items %}
+    {% if item.category == "Drink" %}
+<div id="rcorners">
+        <img src="{{ item.image.url }}" style="height: 250px; width: 250px">
+          <div class="card-body text-center">      
+            <button class="btn btn-warning">By:{{ item.created_by }}</button>         
+            <h5 class="text-center"><a href="{% url 'main:dishes' item.slug %}">{{ item.title }} </a><span class="badge badge-{{ item.label_colour }}">{{ item.labels }}</span></h5>
+            <p class="text-center">{{ item.description }}</p>
+            <h5 class="text-center">تومان {{ item.price }}</h5>    
+            <a href="{% url 'main:dishes' item.slug %}" class="btn btn-info float-right" style="color: #FFDEAD; background-color: coral;">سفارش دادن</a>           
+          </div>
+        </div>
+
+  {% endif %}
+  {% endfor %}
+  </div>
+
+
+
+
+  
+  <div class="filterDiv Main Meal">
+    {% for item in items %}
+    {% if item.category == "Main Meal" %}
+    <div id="rcorners">
+        <img src="{{ item.image.url }}" style="height: 250px; width: 250px">
+          <div class="card-body text-center">      
+            <button class="btn btn-warning">By:{{ item.created_by }}</button>         
+            <h5 class="text-center"><a href="{% url 'main:dishes' item.slug %}">{{ item.title }} </a><span class="badge badge-{{ item.label_colour }}">{{ item.labels }}</span></h5>
+            <p class="text-center">{{ item.description }}</p>
+            <h5 class="text-center">تومان {{ item.price }}</h5>    
+            <a href="{% url 'main:dishes' item.slug %}" class="btn btn-info float-right" style="color: #FFDEAD; background-color: coral;">سفارش دادن</a>           
+          </div></div>
+
+  {% endif %}
+  {% endfor %}
+  </div>
+
+
+  
+  <div class="filterDiv Dessert">
+    {% for item in items %}
+    {% if item.category == "Dessert" %}
+    <div id="rcorners">
+        <img src="{{ item.image.url }}" style="height: 250px; width: 250px">
+          <div class="card-body text-center">      
+            <button class="btn btn-warning">By:{{ item.created_by }}</button>         
+            <h5 class="text-center"><a href="{% url 'main:dishes' item.slug %}">{{ item.title }} </a><span class="badge badge-{{ item.label_colour }}">{{ item.labels }}</span></h5>
+            <p class="text-center">{{ item.description }}</p>
+            <h5 class="text-center">تومان {{ item.price }}</h5>    
+            <a href="{% url 'main:dishes' item.slug %}" class="btn btn-info float-right" style="color: #FFDEAD; background-color: coral;">سفارش دادن</a>           
+          </div></div>
+
+  {% endif %}
+  {% endfor %}
+  </div>
+
+
+</div>
+<br><br>
+
+{% endblock content %}
+
