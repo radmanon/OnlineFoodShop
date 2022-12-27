@@ -4,3 +4,5 @@ I changed the basic UI of this project to more friendly UI and I added some pope
  for example who is ordered and who is delivered this order in when.
 and i added a profile panel for have a required details for customers to use them for customers accounts.
 and in this project there is separated panels for staffs to check and manage orders.
+
+also you can test this website at http://radmanon.pythonanywhere.com/
